@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JUCOCH — Anonymous Mental Health & Campus Wellness Platform | Download APK</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="JUCOCH: 100% Anonymous Mental Health & Emotional Resilience Mobile Platform for College Students. Download the Android APK and explore AI-driven wellness." />
+  <meta name="keywords" content="JUCOCH, mental health, anonymous wellness, expo react native, gemini ai, capstone project 2026, android apk download" />
+  <meta name="theme-color" content="#1B4332" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="JUCOCH — Anonymous Mental Health & Campus Wellness Platform" />
+  <meta property="og:description" content="Empowering Student Wellness with Private AI Support & Continuous Tracking. Download Android APK." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%232D6A4F'/><stop offset='100%' stop-color='%2352B788'/></linearGradient></defs><rect width='100' height='100' rx='26' fill='url(%23g)'/><path d='M58 26v32a14 14 0 0 1-14 14c-7.7 0-14-6.3-14-14h8a6 6 0 0 0 6 6c3.3 0 6-2.7 6-6V26h8z' fill='%23FFFFFF'/><circle cx='68' cy='28' r='5' fill='%23D8F3DC'/></svg>" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* Theme Color Palette */
+      --primary-dark: #1B4332;
+      --primary: #2D6A4F;
+      --primary-accent: #40916C;
+      --sage-green: #52B788;
+      --soft-sage: #74C69D;
+      --mint-pale: #D8F3DC;
+      --mint-subtle: #EBF9F0;
+      --calm-sky: #E8F4F8;
+      --bg-ambient: #F4F9F6;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --bg-card-elevated: #FFFFFF;
+      --border-card: #D8EADB;
+      --border-focus: #52B788;
+      
+      /* Typography Colors */
+      --text-main: #1C1F1D;
+      --text-muted: #5A645E;
+      --text-light: #7E8C83;
+      
+      /* Shadows */
+      --shadow-sm: 0 4px 12px rgba(27, 67, 50, 0.05);
+      --shadow-md: 0 12px 32px rgba(27, 67, 50, 0.08);
+      --shadow-lg: 0 20px 48px rgba(27, 67, 50, 0.12);
+      --shadow-glow: 0 0 35px rgba(82, 183, 136, 0.28);
+      --shadow-button: 0 10px 25px rgba(45, 106, 79, 0.35);
+
+      --radius-sm: 14px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-ambient);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Ambient Background Mesh */
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .ambient-blob-1 {
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 750px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(216, 243, 220, 0.75) 0%, rgba(232, 244, 248, 0.45) 60%, rgba(244, 249, 246, 0) 80%);
+      filter: blur(60px);
+      animation: floatSlow 14s ease-in-out infinite alternate;
+    }
+
+    .ambient-blob-2 {
+      position: absolute;
+      top: 35%;
+      left: 10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(116, 198, 157, 0.22) 0%, rgba(216, 243, 220, 0) 70%);
+      filter: blur(70px);
+      animation: floatSlow2 18s ease-in-out infinite alternate;
+    }
+
+    .ambient-blob-3 {
+      position: absolute;
+      top: 60%;
+      right: 10%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(232, 244, 248, 0.8) 0%, rgba(82, 183, 136, 0.15) 50%, rgba(244, 249, 246, 0) 70%);
+      filter: blur(80px);
+      animation: floatSlow 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatSlow {
+      0% { transform: translate(-50%, 0) scale(1); }
+      100% { transform: translate(-50%, 40px) scale(1.06); }
+    }
+
+    @keyframes floatSlow2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, -35px) scale(1.1); }
+    }
+
+    /* Container Layout */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* Navigation Bar */
+    .navbar-wrapper {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      padding: 0 16px;
+      margin-bottom: 24px;
+    }
+
+    .navbar {
+      max-width: 980px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-full);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .navbar:hover {
+      box-shadow: var(--shadow-md);
+      border-color: rgba(82, 183, 136, 0.5);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--sage-green));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+      position: relative;
+    }
+
+    .brand-logo::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--mint-pale);
+    }
+
+    .brand-text-col {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.2px;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--mint-pale);
+      border: 1px solid rgba(82, 183, 136, 0.4);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--sage-green);
+      display: inline-block;
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7); }
+      70% { box-shadow: 0 0 0 7px rgba(82, 183, 136, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(82, 183, 136, 0); }
+    }
+
+    .btn-nav-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-dark);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(27, 67, 50, 0.2);
+    }
+
+    .btn-nav-download:hover {
+      background: var(--primary);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(45, 106, 79, 0.3);
+      color: #FFFFFF;
+    }
+
+    /* Hero Section (Center Aligned) */
+    .hero-section {
+      padding: 36px 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .tagline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 18px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .tagline-badge svg {
+      color: var(--primary);
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: clamp(32px, 5.5vw, 54px);
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      color: var(--primary-dark);
+      max-width: 860px;
+      margin-bottom: 18px;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--sage-green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(15px, 2.2vw, 18px);
+      color: var(--text-muted);
+      max-width: 760px;
+      line-height: 1.65;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       🌟 CENTERPIECE: Centered Download Card & QR Portal
+       ============================================================ */
+    .centerpiece-wrapper {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 56px auto;
+      position: relative;
+    }
+
+    .centerpiece-glow {
+      position: absolute;
+      inset: -8px;
+      background: linear-gradient(135deg, rgba(82, 183, 136, 0.4), rgba(45, 106, 79, 0.2), rgba(216, 243, 220, 0.6));
+      border-radius: 34px;
+      filter: blur(20px);
+      z-index: 0;
+      opacity: 0.8;
+      transition: opacity 0.4s ease;
+    }
+
+    .centerpiece-card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .centerpiece-card:hover .centerpiece-glow {
+      opacity: 1;
+    }
+
+    .defense-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      background: var(--mint-subtle);
+      border: 1px solid var(--mint-pale);
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 22px;
+    }
+
+    /* Main CTA Download Button */
+    .btn-main-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 60%, #40916C 100%);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 20px 28px;
+      border-radius: var(--radius-md);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.2px;
+      box-shadow: var(--shadow-button);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-main-download::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+      transition: all 0.6s ease;
+    }
+
+    .btn-main-download:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 16px 36px rgba(27, 67, 50, 0.42);
+      color: #FFFFFF;
+    }
+
+    .btn-main-download:hover::before {
+      left: 100%;
+    }
+
+    .btn-main-download:active {
+      transform: translateY(0) scale(0.99);
+    }
+
+    .btn-icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .verified-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Divider */
+    .or-divider {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 440px;
+      margin: 26px 0;
+      color: var(--text-light);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .or-divider::before,
+    .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-card);
+    }
+
+    .or-divider span {
+      padding: 0 16px;
+    }
+
+    /* QR Code Display Card */
+    .qr-container {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .qr-container:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--sage-green);
+    }
+
+    .qr-frame {
+      width: 210px;
+      height: 210px;
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .qr-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .qr-caption {
+      margin-top: 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+      max-width: 320px;
+    }
+
+    .compatibility-pill {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--calm-sky);
+      border: 1px solid #D0E5EE;
+      color: #265B72;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+
+    /* Direct Copy Link Button */
+    .copy-link-btn {
+      margin-top: 18px;
+      background: transparent;
+      border: 1px dashed var(--border-focus);
+      color: var(--primary);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .copy-link-btn:hover {
+      background: var(--mint-subtle);
+      border-style: solid;
+    }
+
+    /* Section Headings */
+    .section-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-tag {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: clamp(26px, 3.5vw, 36px);
+      color: var(--primary-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 8px auto 0;
+    }
+
+    /* ============================================================
+       3-STEP INSTALLATION GUIDE (Centered Card Grid)
+       ============================================================ */
+    .steps-section {
+      padding: 30px 0 50px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 10px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 30px 24px;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--sage-green);
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--mint-pale), #FFFFFF);
+      border: 2px solid var(--sage-green);
+      color: var(--primary-dark);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 10px rgba(82, 183, 136, 0.15);
+    }
+
+    .step-icon-bg {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--mint-subtle);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .step-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .step-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .step-tip {
+      margin-top: 14px;
+      font-size: 11.5px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px dashed var(--border-card);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      color: var(--primary-dark);
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       CORE APP HIGHLIGHTS (Centered 4-Card Grid)
+       ============================================================ */
+    .features-section {
+      padding: 40px 0 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--sage-green);
+    }
+
+    .feature-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .feature-icon-box {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .icon-ai { background: linear-gradient(135deg, #D8F3DC, #B7E4C7); color: #1B4332; }
+    .icon-privacy { background: linear-gradient(135deg, #E8F4F8, #CFE9F3); color: #1B495D; }
+    .icon-score { background: linear-gradient(135deg, #FFF3D6, #FFE6A7); color: #7A5300; }
+    .icon-avatar { background: linear-gradient(135deg, #EDE7F6, #D1C4E9); color: #4A148C; }
+
+    .feature-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      color: var(--primary-dark);
+    }
+
+    .feature-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      margin-top: 2px;
+    }
+
+    .feature-desc {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* Interactive Preview Snippets inside Features */
+    .preview-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--mint-pale);
+    }
+
+    .preview-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 600;
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      color: var(--primary-dark);
+    }
+
+    /* Live Masking Demo Widget */
+    .masking-demo-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 12.5px;
+    }
+
+    .mask-original {
+      color: var(--text-light);
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .mask-output {
+      color: var(--primary-dark);
+      font-weight: 700;
+      background: var(--mint-subtle);
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Avatar Collection Showcase */
+    .avatars-mini-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .avatar-bubble {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .avatar-bubble:hover {
+      transform: scale(1.2) translateY(-2px);
+      border-color: var(--sage-green);
+    }
+
+    /* ============================================================
+       SYSTEM ARCHITECTURE & TECH STACK BADGES
+       ============================================================ */
+    .tech-section {
+      padding: 30px 0 60px;
+    }
+
+    .tech-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .tech-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .tech-item:hover {
+      border-color: var(--sage-green);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tech-layer-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--primary);
+    }
+
+    .tech-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--primary-dark);
+    }
+
+    .tech-detail {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       FOOTER & EVALUATOR NOTES
+       ============================================================ */
+    .footer {
+      border-top: 1px solid var(--border-card);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      padding: 42px 0 32px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--primary-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .footer-copy {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .footer-stack {
+      font-size: 12.5px;
+      color: var(--text-light);
+      max-width: 650px;
+      margin: 0 auto 16px;
+    }
+
+    .footer-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .footer-pill {
+      font-size: 11.5px;
+      color: var(--primary-dark);
+      background: var(--mint-pale);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--primary-dark);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 8px 14px;
+      }
+      .status-badge {
+        display: none;
+      }
+      .centerpiece-card {
+        padding: 26px 18px;
+        border-radius: 24px;
+      }
+      .btn-main-download {
+        font-size: 15px;
+        padding: 16px 18px;
+      }
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+      .qr-frame {
+        width: 190px;
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glow Blobs -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-blob-1"></div>
+    <div class="ambient-blob-2"></div>
+    <div class="ambient-blob-3"></div>
+  </div>
+
+  <!-- Header & Sticky Navbar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="#hero" class="brand-group" aria-label="JUCOCH Home">
+        <div class="brand-logo">J</div>
+        <div class="brand-text-col">
+          <div class="brand-title">JUCOCH <span style="font-weight:400; color:var(--text-light); font-size:14px;">|</span> <span style="font-size:14px; color:var(--primary); font-weight:600;">Wellness</span></div>
+          <div class="brand-sub">Anonymous Mental Health</div>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>Capstone System 2026</span>
+        </div>
+        <a href="https://expo.dev/accounts/bearoys/projects/jucoch-wellness/builds/f2d1c057-7eee-4502-b713-9edd2cff453d" target="_blank" rel="noopener noreferrer" class="btn-nav-download">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download APK</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="container">
+
+    <!-- Hero Section (Centered Master Layout) -->
+    <section id="hero" class="hero-section">
+      <div class="tagline-badge">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span>100% Anonymous Mental Health & Emotional Resilience</span>
+      </div>
+
+      <h1 class="hero-title">
+        Empowering Student Wellness & <span class="gradient-text">Emotional Resilience</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        An anonymous mobile application built with <strong>React Native Expo</strong>, <strong>Google Gemini AI</strong>, <strong>PostgreSQL</strong>, and <strong>Express TypeScript</strong>, engineered to protect student identity while providing real-time wellness insights.
+      </p>
+    </section>
+
+    <!-- ============================================================
+         🌟 CENTERPIECE: Centered Download Card & QR Portal (Main Focus)
+         ============================================================ -->
+    <section class="centerpiece-wrapper" id="download" aria-label="Download and Install APK">
+      <div class="centerpiece-glow"></div>
+      <div class="centerpiece-card">
+        
+        <div class="defense-chip">
+          <span>🌿 Capstone Evaluation Portal • Verified Cloud Build</span>
+        </div>
+
+        <!-- Main Prominent Download Button (Direct APK Link) -->
+        <a 
+          href="https://expo.dev/accounts/bearoys/projects/jucoch-wellness/builds/f2d1c057-7eee-4502-b713-9edd2cff453d" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-main-download"
+          id="btn-download-apk"
+          title="Direct Download JUCOCH Android APK Build"
+        >
+          <div class="btn-icon-circle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </div>
+          <span>📥 Download & Install Android APK (Direct)</span>
+        </a>
+
+        <div class="verified-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D6A4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polyline points="9 12 11 14 15 10"></polyline>
+          </svg>
+          <span>Direct APK Install • Verified Secure • EAS Cloud Build</span>
+        </div>
+
+        <div class="or-divider">
+          <span>OR SCAN WITH PHONE</span>
+        </div>
+
+        <!-- Centered Live Dynamic QR Code Card -->
+        <div class="qr-container">
+          <div class="qr-frame">
+            <img 
+              src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://expo.dev/accounts/bearoys/projects/jucoch-wellness/builds/f2d1c057-7eee-4502-b713-9edd2cff453d" 
+              alt="Scan QR Code to Download JUCOCH Android APK" 
+              class="qr-image"
+              loading="lazy"
+              width="200"
+              height="200"
+            />
+          </div>
+          <p class="qr-caption">📱 Scan with your phone camera to download APK directly or test on mobile.</p>
+          <div class="compatibility-pill">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+            <span>Compatible with Android 8.0+ & iOS 14.0+ (Expo Go)</span>
+          </div>
+        </div>
+
+        <!-- Copy Link Quick Action -->
+        <button class="copy-link-btn" onclick="copyBuildLink()" id="btn-copy-link" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="copy-btn-text">Copy APK Download Link</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3-STEP CENTERED INSTALLATION GUIDE
+         ============================================================ -->
+    <section class="steps-section" id="installation">
+      <div class="section-header">
+        <span class="section-tag">Quick Start Guide</span>
+        <h2 class="section-title">3 Simple Steps to Test on Your Phone</h2>
+        <p class="section-desc">Follow these instructions during capstone evaluation to install the APK smoothly on any Android device.</p>
+      </div>
+
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon-bg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </div>
+          <h3 class="step-title">Download APK or Scan QR</h3>
+          <p class="step-text">Tap the centered <strong>"Download Android APK"</strong> button above or point your phone camera to the live QR code.</p>
+          <div class="step-tip">💡 Tip: Directly opens your browser's downloader.</div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon-bg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="step-title">Allow Installation</h3>
+          <p class="step-text">When prompted by your mobile browser (Chrome/Samsung), tap <strong>"Install Anyway"</strong> or toggle <strong>"Allow from this source"</strong>.</p>
+          <div class="step-tip">🔒 Verified safe Capstone EAS Cloud build.</div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon-bg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+          </div>
+          <h3 class="step-title">Pick Avatar & Explore</h3>
+          <p class="step-text">Launch <strong>JUCOCH</strong>, select one of 10 anonymous nature avatars, and test conversational AI and emotional tracking!</p>
+          <div class="step-tip">✨ 100% Zero personal data collected.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CORE APP HIGHLIGHTS (4 Grid Cards)
+         ============================================================ -->
+    <section class="features-section" id="features">
+      <div class="section-header">
+        <span class="section-tag">System Capabilities</span>
+        <h2 class="section-title">Engineered for Privacy & Emotional Resilience</h2>
+        <p class="section-desc">Key architectural features designed to protect student psychological safety while providing proactive wellness support.</p>
+      </div>
+
+      <div class="features-grid">
+        
+        <!-- Feature 1: AI Companion -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box icon-ai">🤖</div>
+            <div>
+              <h3 class="feature-title">Jucoch AI Companion</h3>
+              <span class="feature-badge">Powered by Google Gemini</span>
+            </div>
+          </div>
+          <p class="feature-desc">
+            24/7 empathetic conversational AI built with contextual prompt engineering. Features multi-session history, proactive safety triage, and dynamic quick-advice chips for stress, academic burnout, and mindfulness.
+          </p>
+          <div class="preview-pill-list">
+            <span class="preview-chip">✨ Multi-session Memory</span>
+            <span class="preview-chip">🧠 Cognitive Reframing</span>
+            <span class="preview-chip">⚡ Quick-Advice Chips</span>
+          </div>
+        </div>
+
+        <!-- Feature 2: Zero-Identity & Masked Privacy -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box icon-privacy">🛡️</div>
+            <div>
+              <h3 class="feature-title">Zero-Identity & Masked Privacy</h3>
+              <span class="feature-badge">Absolute Confidentiality</span>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Dual-layer privacy architecture. User emails are masked (e.g. <code>j***z@gmail.com</code>) and sensitive journal reflections undergo automatic character masking (e.g. <code>🔒 Fi***l Ex***m</code>), ensuring zero identity exposure even to database administrators.
+          </p>
+          <div class="masking-demo-box">
+            <div class="mask-original">
+              <span>Admin DB View:</span>
+              <span style="color:#2D6A4F; font-size:11px;">ENCRYPTED & MASKED</span>
+            </div>
+            <div class="mask-output">
+              <span>🔒 "j***z@school.edu: Stressed about Fi***l Ex***m"</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3: Dynamic Wellness Scoring -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box icon-score">📊</div>
+            <div>
+              <h3 class="feature-title">Dynamic Wellness Scoring</h3>
+              <span class="feature-badge">Holistic Composite Index</span>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Mathematical wellness scoring algorithm integrating 3 daily physiological and emotional signals: mood check-in sentiment, verified sleep duration logs, and mindful activity minutes to formulate a daily resilience score (0-100).
+          </p>
+          <div class="preview-pill-list">
+            <span class="preview-chip">😊 Mood Sentiment</span>
+            <span class="preview-chip">🌙 Sleep Rhythm Logs</span>
+            <span class="preview-chip">🏃 Mindful Activity Tracking</span>
+          </div>
+        </div>
+
+        <!-- Feature 4: 10 Mindfulness Avatars -->
+        <div class="feature-card">
+          <div class="feature-header">
+            <div class="feature-icon-box icon-avatar">🎭</div>
+            <div>
+              <h3 class="feature-title">10 Mindfulness Avatars</h3>
+              <span class="feature-badge">Gamified Anonymity</span>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Students express their identity safely through 10 collectible nature & animal avatars designed to foster emotional psychological safety without real-name or profile photo requirements.
+          </p>
+          <div class="avatars-mini-row" title="Collectible Avatars Preview">
+            <div class="avatar-bubble" title="Zen Panda">🐼</div>
+            <div class="avatar-bubble" title="Mindful Sprout">🌱</div>
+            <div class="avatar-bubble" title="Clever Fox">🦊</div>
+            <div class="avatar-bubble" title="Calm Lotus">🪷</div>
+            <div class="avatar-bubble" title="Serene Owl">🦉</div>
+            <div class="avatar-bubble" title="Gentle Koala">🐨</div>
+            <div class="avatar-bubble" title="Ocean Wave">🌊</div>
+            <div class="avatar-bubble" title="Brave Lion">🦁</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SYSTEM ARCHITECTURE & TECH STACK
+         ============================================================ -->
+    <section class="tech-section" id="architecture">
+      <div class="tech-card">
+        <span class="section-tag">System Architecture</span>
+        <h2 class="section-title">Built with Modern, Scalable Technology</h2>
+        <p class="section-desc" style="max-width: 680px; margin: 8px auto 0;">
+          A full-stack reactive architecture designed for low latency, offline-first resilience, and enterprise-grade privacy protection.
+        </p>
+
+        <div class="tech-grid">
+          <!-- Mobile Frontend -->
+          <div class="tech-item">
+            <span class="tech-layer-title">Mobile Client</span>
+            <span class="tech-name">Expo React Native</span>
+            <span class="tech-detail">TypeScript, React Native Paper, Vector Icons</span>
+          </div>
+
+          <!-- Backend API -->
+          <div class="tech-item">
+            <span class="tech-layer-title">Backend Server</span>
+            <span class="tech-name">Express TypeScript</span>
+            <span class="tech-detail">Node.js, REST API, JWT Auth & Masking Middleware</span>
+          </div>
+
+          <!-- Database -->
+          <div class="tech-item">
+            <span class="tech-layer-title">Database & ORM</span>
+            <span class="tech-name">Prisma + PostgreSQL</span>
+            <span class="tech-detail">Neon Serverless Cloud PostgreSQL Database</span>
+          </div>
+
+          <!-- AI & Cloud -->
+          <div class="tech-item">
+            <span class="tech-layer-title">AI Engine & CI/CD</span>
+            <span class="tech-name">Google Gemini AI</span>
+            <span class="tech-detail">Gemini Pro API & Expo EAS Cloud Automated Builds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centered Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <span style="background:var(--primary); color:#FFF; width:28px; height:28px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center; font-size:16px;">J</span>
+        JUCOCH Wellness Platform
+      </div>
+      <p class="footer-copy">
+        <strong>JUCOCH Capstone System • Academic Year 2026</strong><br />
+        Anonymous Mental Health & Emotional Resilience Platform
+      </p>
+      <p class="footer-stack">
+        Engineered with Expo React Native • TypeScript • Prisma Neon PostgreSQL • Google Gemini AI • Expo EAS Cloud
+      </p>
+
+      <div class="footer-badges">
+        <span class="footer-pill">🔒 Zero PII Policy</span>
+        <span class="footer-pill">🛡️ Masked Student Journals</span>
+        <span class="footer-pill">🎓 University Capstone Defense</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Feedback Element -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#52B788" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toast-message">Link copied to clipboard!</span>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    const APK_BUILD_LINK = "https://expo.dev/accounts/bearoys/projects/jucoch-wellness/builds/f2d1c057-7eee-4502-b713-9edd2cff453d";
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.innerText = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2800);
+    }
+
+    function copyBuildLink() {
+      navigator.clipboard.writeText(APK_BUILD_LINK).then(() => {
+        const copyBtnText = document.getElementById('copy-btn-text');
+        const origText = copyBtnText.innerText;
+        copyBtnText.innerText = "✓ Link Copied!";
+        showToast("✓ APK Download link copied to clipboard!");
+        setTimeout(() => {
+          copyBtnText.innerText = origText;
+        }, 2500);
+      }).catch(() => {
+        showToast("Could not copy link automatically. Please copy the URL from the button.");
+      });
+    }
+  </script>
+</body>
+</html>
