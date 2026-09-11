@@ -10,7 +10,7 @@
 ---
 
 ## 🚀 Live Download & Build Details
-- **Direct APK Download Link:** [Expo EAS Cloud Build Link](https://expo.dev/accounts/bearoys/projects/jucoch-wellness/builds/f2d1c057-7eee-4502-b713-9edd2cff453d)
+- **Direct APK Download Link:** [Expo EAS Cloud Build Link](https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/d3e655a5-015e-42f7-a42a-540ddfec93a6)
 - **Live QR Code:** Dynamically generated in `index.html` via QRServer API for instant mobile phone camera scanning.
 
 ---
