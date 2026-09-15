@@ -9,9 +9,13 @@
 
 ---
 
-## 🚀 Live Download & Build Details
-- **Direct APK Download Link:** [Expo EAS Cloud Build Link](https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a)
-- **Live QR Code:** Dynamically generated in `index.html` via QRServer API for instant mobile phone camera scanning.
+## 🚀 Live Evaluation & Access Portals
+- **Option 1: Direct Android APK Build:** [Expo EAS Cloud Build Link](https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a)
+  - Full standalone Android app installation (Android 8.0+).
+- **Option 2: Live Local Web App (LAN):** `http://192.168.0.106:8081/`
+  - Instant browser access for iOS (Safari), Android (Chrome), and PC laptops.
+  - Requires the host machine to run `npx expo start --web` (or dev server) and all devices connected to the same Wi-Fi network / hotspot.
+- **Dynamic Dual QR Codes:** Dynamically generated in `index.html` via QRServer API for instant mobile phone camera scanning for both APK download and Web access.
 
 ---
 

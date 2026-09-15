@@ -294,6 +294,19 @@
       color: #FFFFFF;
     }
 
+    .btn-nav-web {
+      background: rgba(32, 134, 120, 0.12);
+      color: var(--primary-dark);
+      border: 1px solid rgba(82, 183, 136, 0.45);
+      box-shadow: none;
+    }
+
+    .btn-nav-web:hover {
+      background: var(--mint-pale);
+      color: var(--primary-dark);
+      border-color: var(--sage-green);
+    }
+
     /* Hero Section (Center Aligned) */
     .hero-section {
       padding: 36px 0 20px;
@@ -355,9 +368,24 @@
        ============================================================ */
     .centerpiece-wrapper {
       width: 100%;
-      max-width: 680px;
+      max-width: 1020px;
       margin: 0 auto 56px auto;
       position: relative;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .portal-card-box {
+      position: relative;
+      width: 100%;
+      display: flex;
     }
 
     .centerpiece-glow {
@@ -371,31 +399,38 @@
       transition: opacity 0.4s ease;
     }
 
+    .web-glow {
+      background: linear-gradient(135deg, rgba(45, 154, 112, 0.35), rgba(19, 78, 94, 0.3), rgba(208, 229, 238, 0.6));
+    }
+
+    .portal-card-box:hover .centerpiece-glow {
+      opacity: 1;
+    }
+
     .centerpiece-card {
       position: relative;
       z-index: 1;
-      background: rgba(255, 255, 255, 0.94);
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1.5px solid var(--border-card);
       border-radius: var(--radius-lg);
-      padding: 36px 32px;
+      padding: 32px 24px;
       box-shadow: var(--shadow-lg);
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-
-    .centerpiece-card:hover .centerpiece-glow {
-      opacity: 1;
+      justify-content: space-between;
+      gap: 16px;
     }
 
     .defense-chip {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.8px;
@@ -404,7 +439,31 @@
       border: 1px solid var(--mint-pale);
       padding: 5px 14px;
       border-radius: var(--radius-full);
-      margin-bottom: 22px;
+      margin-bottom: 6px;
+    }
+
+    .web-chip {
+      color: #134E5E;
+      background: #E8F4F8;
+      border-color: #BEE3F8;
+    }
+
+    .card-heading-group {
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-top: 4px;
+      margin-bottom: 2px;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
     /* Main CTA Download Button */
@@ -454,6 +513,37 @@
 
     .btn-main-download:active {
       transform: translateY(0) scale(0.99);
+    }
+
+    .btn-main-web {
+      background: linear-gradient(135deg, #134E5E 0%, #1D705C 60%, #2D9A70 100%);
+      box-shadow: 0 10px 25px rgba(19, 78, 94, 0.32);
+    }
+
+    .btn-main-web:hover {
+      box-shadow: 0 16px 36px rgba(19, 78, 94, 0.42);
+    }
+
+    .wifi-notice-box {
+      margin-top: 14px;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      text-align: left;
+      font-size: 12px;
+      color: #92400E;
+      line-height: 1.45;
+      width: 100%;
+    }
+
+    .wifi-notice-icon {
+      flex-shrink: 0;
+      font-size: 15px;
+      margin-top: 1px;
     }
 
     .btn-icon-circle {
@@ -1019,6 +1109,11 @@
 
     /* Responsive Queries */
     @media (max-width: 900px) {
+      .portal-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+      }
       .steps-grid {
         grid-template-columns: 1fr;
         max-width: 480px;
@@ -1086,13 +1181,21 @@
           <span class="status-dot"></span>
           <span>Capstone System 2026</span>
         </div>
-        <a href="https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a" target="_blank" rel="noopener noreferrer" class="btn-nav-download">
+        <a href="#apk-portal" class="btn-nav-download" title="Go to Android APK Download">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          <span>Download APK</span>
+          <span>APK Build</span>
+        </a>
+        <a href="http://192.168.0.106:8081/" target="_blank" rel="noopener noreferrer" class="btn-nav-download btn-nav-web" title="Open Live Web App in Browser">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span>Web App</span>
         </a>
       </div>
     </nav>
@@ -1123,75 +1226,177 @@
     <!-- ============================================================
          🌟 CENTERPIECE: Centered Download Card & QR Portal (Main Focus)
          ============================================================ -->
-    <section class="centerpiece-wrapper" id="download" aria-label="Download and Install APK">
-      <div class="centerpiece-glow"></div>
-      <div class="centerpiece-card">
-        
-        <div class="defense-chip">
-          <span>🌿 Capstone Evaluation Portal • Verified Cloud Build</span>
-        </div>
+    <section class="centerpiece-wrapper" id="download" aria-label="Download APK or Open Live Web App">
+      <div class="portal-grid">
 
-        <!-- Main Prominent Download Button (Direct APK Link) -->
-        <a 
-          href="https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="btn-main-download"
-          id="btn-download-apk"
-          title="Direct Download JUCOCH Android APK Build"
-        >
-          <div class="btn-icon-circle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
+        <!-- Option 1: Android APK Download -->
+        <div class="portal-card-box" id="apk-portal">
+          <div class="centerpiece-glow"></div>
+          <div class="centerpiece-card">
+            
+            <div style="width: 100%;">
+              <div class="defense-chip">
+                <span>📱 Option 1 • Android Devices</span>
+              </div>
+              <div class="card-heading-group">
+                <h3 class="card-title">Download Android APK</h3>
+                <p class="card-subtitle">Install standalone APK for persistent evaluation</p>
+              </div>
+
+              <!-- Main Prominent Download Button (Direct APK Link) -->
+              <a 
+                href="https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn-main-download"
+                id="btn-download-apk"
+                title="Direct Download JUCOCH Android APK Build"
+              >
+                <div class="btn-icon-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                </div>
+                <span>📥 Download Android APK</span>
+              </a>
+
+              <div class="verified-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D6A4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+                <span>Direct APK Install • EAS Cloud Build</span>
+              </div>
+            </div>
+
+            <div class="or-divider">
+              <span>OR SCAN WITH PHONE</span>
+            </div>
+
+            <!-- Centered Live Dynamic QR Code Card -->
+            <div class="qr-container">
+              <div class="qr-frame">
+                <img 
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a" 
+                  alt="Scan QR Code to Download JUCOCH Android APK" 
+                  class="qr-image"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                />
+              </div>
+              <p class="qr-caption">📱 Scan with Android camera to download and install APK directly.</p>
+              <div class="compatibility-pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+                <span>Compatible with Android 8.0+</span>
+              </div>
+            </div>
+
+            <!-- Copy Link Quick Action -->
+            <button class="copy-link-btn" onclick="copyBuildLink()" id="btn-copy-link" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span id="copy-btn-text">Copy APK Download Link</span>
+            </button>
+
           </div>
-          <span>📥 Download & Install Android APK (Direct)</span>
-        </a>
-
-        <div class="verified-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2D6A4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            <polyline points="9 12 11 14 15 10"></polyline>
-          </svg>
-          <span>Direct APK Install • Verified Secure • EAS Cloud Build</span>
         </div>
 
-        <div class="or-divider">
-          <span>OR SCAN WITH PHONE</span>
-        </div>
+        <!-- Option 2: Live Web App (Instant Browser Access) -->
+        <div class="portal-card-box" id="web-portal">
+          <div class="centerpiece-glow web-glow"></div>
+          <div class="centerpiece-card">
+            
+            <div style="width: 100%;">
+              <div class="defense-chip web-chip">
+                <span>🌐 Option 2 • Instant Web Access</span>
+              </div>
+              <div class="card-heading-group">
+                <h3 class="card-title">Live Web App (LAN)</h3>
+                <p class="card-subtitle">Zero install • Instant testing on iPhone, Android & PC</p>
+              </div>
 
-        <!-- Centered Live Dynamic QR Code Card -->
-        <div class="qr-container">
-          <div class="qr-frame">
-            <img 
-              src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a" 
-              alt="Scan QR Code to Download JUCOCH Android APK" 
-              class="qr-image"
-              loading="lazy"
-              width="200"
-              height="200"
-            />
+              <!-- Main Prominent Web Button -->
+              <a 
+                href="http://192.168.0.106:8081/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn-main-download btn-main-web"
+                id="btn-open-web"
+                title="Open JUCOCH Live Web App in Browser"
+              >
+                <div class="btn-icon-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </div>
+                <span>🚀 Open Web App (Browser)</span>
+              </a>
+
+              <div class="verified-badge" style="color:#134E5E;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#134E5E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+                <span>Instant Browser Access • Safari & Chrome</span>
+              </div>
+            </div>
+
+            <div class="or-divider">
+              <span>OR SCAN WITH PHONE</span>
+            </div>
+
+            <!-- Centered Live Dynamic QR Code Card -->
+            <div class="qr-container">
+              <div class="qr-frame">
+                <img 
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=http://192.168.0.106:8081/" 
+                  alt="Scan QR Code to Open JUCOCH Live Web App" 
+                  class="qr-image"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                />
+              </div>
+              <p class="qr-caption">📱 Scan with iPhone / Android camera to open directly in mobile browser.</p>
+              <div class="compatibility-pill" style="background:#E8F4F8; border-color:#BEE3F8; color:#134E5E;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>iOS, Android & Laptop Browser Compatible</span>
+              </div>
+            </div>
+
+            <!-- Copy Link Quick Action -->
+            <button class="copy-link-btn" onclick="copyWebLink()" id="btn-copy-web" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span id="copy-web-text">Copy Web App Link</span>
+            </button>
+
+            <!-- Wi-Fi Notice Box -->
+            <div class="wifi-notice-box">
+              <span class="wifi-notice-icon">⚠️</span>
+              <div>
+                <strong>Same Wi-Fi Required:</strong> Phone must be connected to the <u>same Wi-Fi / hotspot</u> as the presenter's laptop while the Expo terminal is running.
+              </div>
+            </div>
+
           </div>
-          <p class="qr-caption">📱 Scan with your phone camera to download APK directly or test on mobile.</p>
-          <div class="compatibility-pill">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-              <line x1="12" y1="18" x2="12.01" y2="18"></line>
-            </svg>
-            <span>Compatible with Android 8.0+ & iOS 14.0+ (Expo Go)</span>
-          </div>
         </div>
-
-        <!-- Copy Link Quick Action -->
-        <button class="copy-link-btn" onclick="copyBuildLink()" id="btn-copy-link" type="button">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
-          <span id="copy-btn-text">Copy APK Download Link</span>
-        </button>
 
       </div>
     </section>
@@ -1217,9 +1422,9 @@
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
           </div>
-          <h3 class="step-title">Download APK or Scan QR</h3>
-          <p class="step-text">Tap the centered <strong>"Download Android APK"</strong> button above or point your phone camera to the live QR code.</p>
-          <div class="step-tip">💡 Tip: Directly opens your browser's downloader.</div>
+          <h3 class="step-title">Choose APK or Web App</h3>
+          <p class="step-text">Scan <strong>Option 1 QR</strong> to install the APK on Android, or scan <strong>Option 2 QR</strong> to open the Live Web App instantly in your browser.</p>
+          <div class="step-tip">💡 Tip: Web version requires same Wi-Fi as presenter laptop.</div>
         </div>
 
         <!-- Step 2 -->
@@ -1432,6 +1637,7 @@
   <!-- Interactive JavaScript -->
   <script>
     const APK_BUILD_LINK = "https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a";
+    const WEB_LOCAL_LINK = "http://192.168.0.106:8081/";
 
     function showToast(message) {
       const toast = document.getElementById('toast');
@@ -1449,6 +1655,20 @@
         const origText = copyBtnText.innerText;
         copyBtnText.innerText = "✓ Link Copied!";
         showToast("✓ APK Download link copied to clipboard!");
+        setTimeout(() => {
+          copyBtnText.innerText = origText;
+        }, 2500);
+      }).catch(() => {
+        showToast("Could not copy link automatically. Please copy the URL from the button.");
+      });
+    }
+
+    function copyWebLink() {
+      navigator.clipboard.writeText(WEB_LOCAL_LINK).then(() => {
+        const copyBtnText = document.getElementById('copy-web-text');
+        const origText = copyBtnText.innerText;
+        copyBtnText.innerText = "✓ Link Copied!";
+        showToast("✓ Local Web link copied to clipboard!");
         setTimeout(() => {
           copyBtnText.innerText = origText;
         }, 2500);
