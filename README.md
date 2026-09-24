@@ -1,21 +1,18 @@
-# JUCOCH — Anonymous Mental Health & Campus Wellness Platform
+# JUCOCH — AI-Based Mental Health Tracking and Recommendation System
 
 > **Capstone Project 2026** • Landing Page & Direct Android APK Download Portal
 
 ---
 
 ## 🌿 Overview
-**JUCOCH** is an anonymous mental health and emotional resilience mobile application built with **React Native Expo**, **Google Gemini AI**, **PostgreSQL (Neon)**, and **Express TypeScript**. It is engineered to protect student identity with real-time asterisk masking and zero-PII storage while providing continuous emotional tracking and AI-driven support.
+**JUCOCH** is an **AI-Based Mental Health Tracking and Recommendation System** mobile application built with **React Native Expo**, **Google Gemini AI**, **PostgreSQL (Neon)**, and **Express TypeScript**. It is engineered to protect student psychological safety and identity with zero-PII storage while providing continuous emotional tracking and personalized AI recommendations.
 
 ---
 
-## 🚀 Live Evaluation & Access Portals
-- **Option 1: Direct Android APK Build:** [Expo EAS Cloud Build Link](https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a)
+## 🚀 Live Evaluation & Access Portal
+- **Direct Android APK Build:** [Expo EAS Cloud Build Link](https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/076be73e-7e75-4160-8a64-ba1f9711871e)
   - Full standalone Android app installation (Android 8.0+).
-- **Option 2: Live Local Web App (LAN):** `http://192.168.0.106:8081/`
-  - Instant browser access for iOS (Safari), Android (Chrome), and PC laptops.
-  - Requires the host machine to run `npx expo start --web` (or dev server) and all devices connected to the same Wi-Fi network / hotspot.
-- **Dynamic Dual QR Codes:** Dynamically generated in `index.html` via QRServer API for instant mobile phone camera scanning for both APK download and Web access.
+- **Dynamic QR Code:** Dynamically generated in `index.html` via QRServer API for instant mobile phone camera scanning and direct APK installation.
 
 ---
 

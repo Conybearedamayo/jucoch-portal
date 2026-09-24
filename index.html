@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JUCOCH — Anonymous Mental Health & Campus Wellness Platform | Download APK</title>
+  <title>JUCOCH — AI-Based Mental Health Tracking and Recommendation System | Download APK</title>
   
   <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="JUCOCH: 100% Anonymous Mental Health & Emotional Resilience Mobile Platform for College Students. Download the Android APK and explore AI-driven wellness." />
-  <meta name="keywords" content="JUCOCH, mental health, anonymous wellness, expo react native, gemini ai, capstone project 2026, android apk download" />
+  <meta name="description" content="JUCOCH: AI-Based Mental Health Tracking and Recommendation System for College Students. Download the Android APK and explore AI-driven emotional tracking and personalized recommendations." />
+  <meta name="keywords" content="JUCOCH, AI-Based Mental Health Tracking and Recommendation System, mental health tracking, recommendation system, expo react native, gemini ai, capstone project 2026, android apk download" />
   <meta name="theme-color" content="#1B4332" />
   
   <!-- Open Graph -->
-  <meta property="og:title" content="JUCOCH — Anonymous Mental Health & Campus Wellness Platform" />
-  <meta property="og:description" content="Empowering Student Wellness with Private AI Support & Continuous Tracking. Download Android APK." />
+  <meta property="og:title" content="JUCOCH — AI-Based Mental Health Tracking and Recommendation System" />
+  <meta property="og:description" content="AI-Based Mental Health Tracking and Recommendation System with Private AI Support. Download Android APK." />
   <meta property="og:type" content="website" />
   
   <!-- Favicon SVG -->
@@ -368,15 +368,14 @@
        ============================================================ */
     .centerpiece-wrapper {
       width: 100%;
-      max-width: 1020px;
+      max-width: 580px;
       margin: 0 auto 56px auto;
       position: relative;
     }
 
     .portal-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
+      display: flex;
+      justify-content: center;
       width: 100%;
       position: relative;
       z-index: 1;
@@ -1211,20 +1210,16 @@
 
     @media (max-width: 768px) {
       .portal-segmented-control {
-        display: flex;
+        display: none !important;
       }
       .portal-grid {
         display: block;
-        max-width: 460px;
+        max-width: 480px;
         margin: 0 auto;
       }
       .portal-card-box {
-        display: none;
-        width: 100%;
-      }
-      .portal-card-box.active-tab {
         display: flex;
-        animation: tabFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        width: 100%;
       }
     }
 
@@ -1549,30 +1544,22 @@
         <div class="brand-logo">J</div>
         <div class="brand-text-col">
           <div class="brand-title">JUCOCH <span style="font-weight:400; color:var(--text-light); font-size:14px;">|</span> <span style="font-size:14px; color:var(--primary); font-weight:600;">Wellness</span></div>
-          <div class="brand-sub">Anonymous Mental Health</div>
+          <div class="brand-sub">AI-Based Mental Health System</div>
         </div>
       </a>
 
       <div class="nav-actions">
         <div class="status-badge">
           <span class="status-dot"></span>
-          <span>Capstone System 2026</span>
+          <span>Capstone Project 2026</span>
         </div>
-        <a href="#apk-portal" onclick="selectAndScrollToTab('apk', event)" class="btn-nav-download" title="Go to Android APK Download">
+        <a href="#download" onclick="scrollToDownload(event)" class="btn-nav-download" title="Go to Android APK Download">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          <span>APK</span>
-        </a>
-        <a href="#web-portal" onclick="selectAndScrollToTab('web', event)" class="btn-nav-download btn-nav-web" title="Go to Live Web App">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-          <span>Web</span>
+          <span>Download APK</span>
         </a>
       </div>
     </nav>
@@ -1588,78 +1575,41 @@
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
         </svg>
-        <span>100% Anonymous Mental Health & Emotional Resilience</span>
+        <span>Capstone Project 2026 • Anonymous Student Wellness</span>
       </div>
 
       <h1 class="hero-title">
-        Empowering Student Wellness & <span class="gradient-text">Emotional Resilience</span>
+        AI-Based Mental Health Tracking &amp; <span class="gradient-text">Recommendation System</span>
       </h1>
 
       <p class="hero-subtitle">
-        An anonymous mobile application built with <strong>React Native Expo</strong>, <strong>Google Gemini AI</strong>, <strong>PostgreSQL</strong>, and <strong>Express TypeScript</strong>, engineered to protect student identity while providing real-time wellness insights.
+        An intelligent, anonymous mobile application built with <strong>React Native Expo</strong>, <strong>Google Gemini AI</strong>, <strong>PostgreSQL</strong>, and <strong>Express TypeScript</strong>, engineered to track emotional well-being and provide real-time wellness recommendations while protecting student identity.
       </p>
     </section>
 
     <!-- ============================================================
          🌟 CENTERPIECE: Centered Download Card & QR Portal (Main Focus)
          ============================================================ -->
-    <section class="centerpiece-wrapper" id="download" aria-label="Download APK or Open Live Web App">
-      
-      <!-- Mobile Segmented Tab Switcher (Visible on Mobile/Tablet) -->
-      <div class="portal-segmented-control" role="tablist" aria-label="Choose evaluation method">
-        <button 
-          class="segmented-btn active" 
-          id="tab-btn-apk" 
-          role="tab" 
-          aria-selected="true" 
-          aria-controls="apk-portal"
-          onclick="switchPortalTab('apk')"
-          type="button"
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          <span>Android APK</span>
-        </button>
-        <button 
-          class="segmented-btn" 
-          id="tab-btn-web" 
-          role="tab" 
-          aria-selected="false" 
-          aria-controls="web-portal"
-          onclick="switchPortalTab('web')"
-          type="button"
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-          <span>Live Web App</span>
-        </button>
-      </div>
-
+    <section class="centerpiece-wrapper" id="download" aria-label="Download Android APK">
       <div class="portal-grid">
 
-        <!-- Option 1: Android APK Download -->
-        <div class="portal-card-box active-tab" id="apk-portal">
+        <!-- Android APK Download Card -->
+        <div class="portal-card-box" id="apk-portal">
           <div class="centerpiece-glow"></div>
           <div class="centerpiece-card">
             
             <div style="width: 100%;">
               <div class="defense-chip">
-                <span>📱 Option 1 • Android Devices</span>
+                <span>📱 Official Capstone Build • Android</span>
               </div>
               <div class="card-heading-group">
                 <h3 class="card-title">Download Android APK</h3>
-                <p class="card-subtitle">Install standalone APK for persistent evaluation</p>
+                <p class="card-subtitle">Install standalone APK for direct evaluation &amp; testing</p>
               </div>
 
               <!-- Main Prominent Download Button (Direct APK Link) -->
               <a 
-                href="https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a" 
+                href="https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/076be73e-7e75-4160-8a64-ba1f9711871e" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 class="btn-main-download"
@@ -1693,7 +1643,7 @@
             <div class="qr-container">
               <div class="qr-frame">
                 <img 
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a" 
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/076be73e-7e75-4160-8a64-ba1f9711871e" 
                   alt="Scan QR Code to Download JUCOCH Android APK" 
                   class="qr-image"
                   loading="lazy"
@@ -1723,95 +1673,6 @@
           </div>
         </div>
 
-        <!-- Option 2: Live Web App (Instant Browser Access) -->
-        <div class="portal-card-box" id="web-portal">
-          <div class="centerpiece-glow web-glow"></div>
-          <div class="centerpiece-card">
-            
-            <div style="width: 100%;">
-              <div class="defense-chip web-chip">
-                <span>🌐 Option 2 • Instant Web Access</span>
-              </div>
-              <div class="card-heading-group">
-                <h3 class="card-title">Live Web App (LAN)</h3>
-                <p class="card-subtitle">Zero install • Instant testing on iPhone, Android & PC</p>
-              </div>
-
-              <!-- Main Prominent Web Button -->
-              <a 
-                href="http://192.168.0.106:8081/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="btn-main-download btn-main-web"
-                id="btn-open-web"
-                title="Open JUCOCH Live Web App in Browser"
-              >
-                <div class="btn-icon-circle">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                  </svg>
-                </div>
-                <span>🚀 Open Web App (Browser)</span>
-              </a>
-
-              <div class="verified-badge" style="color:#134E5E;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#134E5E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <polyline points="9 12 11 14 15 10"></polyline>
-                </svg>
-                <span>Instant Browser Access • Safari & Chrome</span>
-              </div>
-            </div>
-
-            <div class="or-divider">
-              <span>OR SCAN WITH PHONE</span>
-            </div>
-
-            <!-- Centered Live Dynamic QR Code Card -->
-            <div class="qr-container">
-              <div class="qr-frame">
-                <img 
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=http://192.168.0.106:8081/" 
-                  alt="Scan QR Code to Open JUCOCH Live Web App" 
-                  class="qr-image"
-                  loading="lazy"
-                  width="200"
-                  height="200"
-                />
-              </div>
-              <p class="qr-caption">📱 Scan with iPhone / Android camera to open directly in mobile browser.</p>
-              <div class="compatibility-pill" style="background:#E8F4F8; border-color:#BEE3F8; color:#134E5E;">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="8" y1="21" x2="16" y2="21"></line>
-                  <line x1="12" y1="17" x2="12" y2="21"></line>
-                </svg>
-                <span>iOS, Android & Laptop Browser Compatible</span>
-              </div>
-            </div>
-
-            <!-- Copy Link Quick Action -->
-            <button class="copy-link-btn" onclick="copyWebLink()" id="btn-copy-web" type="button">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-              <span id="copy-web-text">Copy Web App Link</span>
-            </button>
-
-            <!-- Wi-Fi Notice Box -->
-            <div class="wifi-notice-box">
-              <span class="wifi-notice-icon">⚠️</span>
-              <div>
-                <strong>Same Wi-Fi Required:</strong> Phone must be connected to the <u>same Wi-Fi / hotspot</u> as the presenter's laptop while the Expo terminal is running.
-              </div>
-            </div>
-
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -1836,9 +1697,9 @@
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
           </div>
-          <h3 class="step-title">Choose APK or Web App</h3>
-          <p class="step-text">Scan <strong>Option 1 QR</strong> to install the APK on Android, or scan <strong>Option 2 QR</strong> to open the Live Web App instantly in your browser.</p>
-          <div class="step-tip">💡 Tip: Web version requires same Wi-Fi as presenter laptop.</div>
+          <h3 class="step-title">Scan QR or Download APK</h3>
+          <p class="step-text">Tap <strong>"Download Android APK"</strong> directly on your mobile device, or scan the <strong>QR Code</strong> with your phone's camera.</p>
+          <div class="step-tip">💡 Tip: Compatible with Android 8.0 or higher.</div>
         </div>
 
         <!-- Step 2 -->
@@ -1866,7 +1727,7 @@
             </svg>
           </div>
           <h3 class="step-title">Pick Avatar & Explore</h3>
-          <p class="step-text">Launch <strong>JUCOCH</strong>, select one of 10 anonymous nature avatars, and test conversational AI and emotional tracking!</p>
+          <p class="step-text">Launch <strong>JUCOCH</strong>, select an anonymous avatar, and explore AI tracking and personalized recommendations!</p>
           <div class="step-tip">✨ 100% Zero personal data collected.</div>
         </div>
       </div>
@@ -2026,7 +1887,7 @@
       </div>
       <p class="footer-copy">
         <strong>JUCOCH Capstone System • Academic Year 2026</strong><br />
-        Anonymous Mental Health & Emotional Resilience Platform
+        AI-Based Mental Health Tracking and Recommendation System
       </p>
       <p class="footer-stack">
         Engineered with Expo React Native • TypeScript • Prisma Neon PostgreSQL • Google Gemini AI • Expo EAS Cloud
@@ -2050,8 +1911,7 @@
 
   <!-- Interactive JavaScript -->
   <script>
-    const APK_BUILD_LINK = "https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/28bc7b6f-9b6f-42ab-8cd1-a4c7a067419a";
-    const WEB_LOCAL_LINK = "http://192.168.0.106:8081/";
+    const APK_BUILD_LINK = "https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/076be73e-7e75-4160-8a64-ba1f9711871e";
 
     function showToast(message) {
       const toast = document.getElementById('toast');
@@ -2077,71 +1937,10 @@
       });
     }
 
-    function copyWebLink() {
-      navigator.clipboard.writeText(WEB_LOCAL_LINK).then(() => {
-        const copyBtnText = document.getElementById('copy-web-text');
-        const origText = copyBtnText.innerText;
-        copyBtnText.innerText = "✓ Link Copied!";
-        showToast("✓ Local Web link copied to clipboard!");
-        setTimeout(() => {
-          copyBtnText.innerText = origText;
-        }, 2500);
-      }).catch(() => {
-        showToast("Could not copy link automatically. Please copy the URL from the button.");
-      });
-    }
-
-    function switchPortalTab(tabName) {
-      const apkCard = document.getElementById('apk-portal');
-      const webCard = document.getElementById('web-portal');
-      const apkBtn = document.getElementById('tab-btn-apk');
-      const webBtn = document.getElementById('tab-btn-web');
-
-      if (tabName === 'apk') {
-        if (apkCard) {
-          apkCard.classList.add('active-tab');
-          apkCard.classList.add('tab-animated');
-        }
-        if (webCard) {
-          webCard.classList.remove('active-tab');
-          webCard.classList.remove('tab-animated');
-        }
-        if (apkBtn) {
-          apkBtn.classList.add('active');
-          apkBtn.setAttribute('aria-selected', 'true');
-        }
-        if (webBtn) {
-          webBtn.classList.remove('active');
-          webBtn.setAttribute('aria-selected', 'false');
-        }
-      } else {
-        if (webCard) {
-          webCard.classList.add('active-tab');
-          webCard.classList.add('tab-animated');
-        }
-        if (apkCard) {
-          apkCard.classList.remove('active-tab');
-          apkCard.classList.remove('tab-animated');
-        }
-        if (webBtn) {
-          webBtn.classList.add('active');
-          webBtn.setAttribute('aria-selected', 'true');
-        }
-        if (apkBtn) {
-          apkBtn.classList.remove('active');
-          apkBtn.setAttribute('aria-selected', 'false');
-        }
-      }
-    }
-
-    function selectAndScrollToTab(tabName, event) {
-      if (window.innerWidth <= 768) {
-        switchPortalTab(tabName);
-      }
-      const targetId = tabName === 'apk' ? 'apk-portal' : 'web-portal';
-      const target = document.getElementById(targetId);
+    function scrollToDownload(event) {
+      if (event) event.preventDefault();
+      const target = document.getElementById('download');
       if (target) {
-        if (event) event.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
