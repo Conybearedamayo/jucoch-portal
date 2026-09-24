@@ -12,7 +12,6 @@
 ## 🚀 Live Evaluation & Access Portal
 - **Direct Android APK Build:** [Expo EAS Cloud Build Link](https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/076be73e-7e75-4160-8a64-ba1f9711871e)
   - Full standalone Android app installation (Android 8.0+).
-- **Dynamic QR Code:** Dynamically generated in `index.html` via QRServer API for instant mobile phone camera scanning and direct APK installation.
 
 ---
 

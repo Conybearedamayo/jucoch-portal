@@ -364,7 +364,7 @@
     }
 
     /* ============================================================
-       🌟 CENTERPIECE: Centered Download Card & QR Portal
+       🌟 CENTERPIECE: Centered Download Card
        ============================================================ */
     .centerpiece-wrapper {
       width: 100%;
@@ -1588,7 +1588,7 @@
     </section>
 
     <!-- ============================================================
-         🌟 CENTERPIECE: Centered Download Card & QR Portal (Main Focus)
+         🌟 CENTERPIECE: Centered Download Card (Main Focus)
          ============================================================ -->
     <section class="centerpiece-wrapper" id="download" aria-label="Download Android APK">
       <div class="portal-grid">
@@ -1633,26 +1633,7 @@
                 </svg>
                 <span>Direct APK Install • EAS Cloud Build</span>
               </div>
-            </div>
-
-            <div class="or-divider">
-              <span>OR SCAN WITH PHONE</span>
-            </div>
-
-            <!-- Centered Live Dynamic QR Code Card -->
-            <div class="qr-container">
-              <div class="qr-frame">
-                <img 
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/076be73e-7e75-4160-8a64-ba1f9711871e" 
-                  alt="Scan QR Code to Download JUCOCH Android APK" 
-                  class="qr-image"
-                  loading="lazy"
-                  width="200"
-                  height="200"
-                />
-              </div>
-              <p class="qr-caption">📱 Scan with Android camera to download and install APK directly.</p>
-              <div class="compatibility-pill">
+              <div class="compatibility-pill" style="margin-top: 14px;">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
                   <line x1="12" y1="18" x2="12.01" y2="18"></line>
@@ -1662,7 +1643,7 @@
             </div>
 
             <!-- Copy Link Quick Action -->
-            <button class="copy-link-btn" onclick="copyBuildLink()" id="btn-copy-link" type="button">
+            <button class="copy-link-btn" onclick="copyBuildLink()" id="btn-copy-link" type="button" style="margin-top: 6px;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1697,8 +1678,8 @@
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
           </div>
-          <h3 class="step-title">Scan QR or Download APK</h3>
-          <p class="step-text">Tap <strong>"Download Android APK"</strong> directly on your mobile device, or scan the <strong>QR Code</strong> with your phone's camera.</p>
+          <h3 class="step-title">Download Android APK</h3>
+          <p class="step-text">Tap <strong>"Download Android APK"</strong> directly on your mobile device to download the standalone installation build.</p>
           <div class="step-tip">💡 Tip: Compatible with Android 8.0 or higher.</div>
         </div>
 
