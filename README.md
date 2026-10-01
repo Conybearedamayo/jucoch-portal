@@ -10,7 +10,7 @@
 ---
 
 ## 🚀 Live Evaluation & Access Portal
-- **Direct Android APK Build:** [Expo EAS Cloud Build Link](https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/076be73e-7e75-4160-8a64-ba1f9711871e)
+- **Direct Android APK Build:** [Expo EAS Cloud Build Link](https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/f64d52ac-595f-4bf1-9220-5f73767c0424)
   - Full standalone Android app installation (Android 8.0+).
 
 ---

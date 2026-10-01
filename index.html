@@ -1609,7 +1609,7 @@
 
               <!-- Main Prominent Download Button (Direct APK Link) -->
               <a 
-                href="https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/076be73e-7e75-4160-8a64-ba1f9711871e" 
+                href="https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/f64d52ac-595f-4bf1-9220-5f73767c0424" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 class="btn-main-download"
@@ -1892,11 +1892,12 @@
 
   <!-- Interactive JavaScript -->
   <script>
-    const APK_BUILD_LINK = "https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/076be73e-7e75-4160-8a64-ba1f9711871e";
+    const APK_BUILD_LINK = "https://expo.dev/accounts/bearoy/projects/jucoch-wellness/builds/f64d52ac-595f-4bf1-9220-5f73767c0424";
 
     function showToast(message) {
       const toast = document.getElementById('toast');
       const toastMsg = document.getElementById('toast-message');
+      if (!toast || !toastMsg) return;
       toastMsg.innerText = message;
       toast.classList.add('show');
       setTimeout(() => {
@@ -1905,21 +1906,50 @@
     }
 
     function copyBuildLink() {
-      navigator.clipboard.writeText(APK_BUILD_LINK).then(() => {
-        const copyBtnText = document.getElementById('copy-btn-text');
-        const origText = copyBtnText.innerText;
-        copyBtnText.innerText = "✓ Link Copied!";
+      const copyBtnText = document.getElementById('copy-btn-text');
+      const origText = copyBtnText ? copyBtnText.innerText : "Copy APK Download Link";
+
+      function onCopySuccess() {
+        if (copyBtnText) copyBtnText.innerText = "✓ Link Copied!";
         showToast("✓ APK Download link copied to clipboard!");
         setTimeout(() => {
-          copyBtnText.innerText = origText;
+          if (copyBtnText) copyBtnText.innerText = origText;
         }, 2500);
-      }).catch(() => {
+      }
+
+      function onCopyFallback() {
+        try {
+          const textArea = document.createElement("textarea");
+          textArea.value = APK_BUILD_LINK;
+          textArea.style.position = "fixed";
+          textArea.style.left = "-9999px";
+          textArea.style.top = "0";
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          const successful = document.execCommand('copy');
+          document.body.removeChild(textArea);
+          if (successful) {
+            onCopySuccess();
+            return;
+          }
+        } catch (e) {}
         showToast("Could not copy link automatically. Please copy the URL from the button.");
-      });
+      }
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(APK_BUILD_LINK)
+          .then(onCopySuccess)
+          .catch(onCopyFallback);
+      } else {
+        onCopyFallback();
+      }
     }
 
     function scrollToDownload(event) {
-      if (event) event.preventDefault();
+      if (event && typeof event.preventDefault === 'function') {
+        event.preventDefault();
+      }
       const target = document.getElementById('download');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
