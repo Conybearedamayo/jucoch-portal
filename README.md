@@ -10,7 +10,7 @@
 ---
 
 ## 🚀 Live Evaluation & Access Portal
-- **Direct Android APK Build:** [Expo EAS Cloud Build Link](https://expo.dev/artifacts/eas/pb0yasQPgFljh2YTSB2aw6iH5Q0-ZhVuJwtWd6itEWc.apk)
+- **Direct Android APK Build (`MindBridge.apk`):** [Download MindBridge.apk](https://github.com/Conybearedamayo/jucoch-portal/releases/download/v1.0.0/MindBridge.apk)
   - Full standalone Android app installation (Android 8.0+).
   - SHA-256: `fdd21882777496b75155d37e9d54a4939c74f7446895db3c8490119539f4b8ed`
 
